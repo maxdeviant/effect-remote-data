@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added predicate functions:
+  - `RemoteData.isNotAsked`
+  - `RemoteData.isLoading`
+  - `RemoteData.isFailure`
+  - `RemoteData.isSuccess`
 - Added `RemoteData.match`
 - Added `RemoteData.toOption`
 - Added `RemoteData.fromOption`
