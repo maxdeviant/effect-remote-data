@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  '@effect/data':
+    specifier: 0.18.3
+    version: 0.18.3
   prettier:
     specifier: 3.0.3
     version: 3.0.3
@@ -16,6 +19,10 @@ devDependencies:
     version: 0.34.3
 
 packages:
+
+  /@effect/data@0.18.3:
+    resolution: {integrity: sha512-xNG4CwxE758EK0v81EIPnKv9QeU/x9st1Doab/Fjf7sb9V3n55C85aBiKChpKgGD8pKCPHcjGydLsRHVUvzpwg==}
+    dev: true
 
   /@esbuild/android-arm64@0.18.20:
     resolution: {integrity: sha512-Nz4rJcchGDtENV0eMKUNa6L12zz2zBDXuhj/Vjh18zGqB44Bi7MBMSXjgunJgjRhCmKOjnPuZp4Mb6OKqtMHLQ==}

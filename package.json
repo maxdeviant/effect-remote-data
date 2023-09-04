@@ -21,8 +21,11 @@
     "lib/",
     "!lib/**/*.test.{js,d.ts}"
   ],
-  "dependencies": {},
+  "peerDependencies": {
+    "@effect/data": "0.18.x"
+  },
   "devDependencies": {
+    "@effect/data": "0.18.3",
     "prettier": "3.0.3",
     "typescript": "5.2.2",
     "vitest": "0.34.3"
