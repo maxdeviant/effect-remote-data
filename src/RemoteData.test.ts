@@ -51,6 +51,112 @@ describe('RemoteData', () => {
     });
   });
 
+  describe('match', () => {
+    describe('when used data-last', () => {
+      it('calls `onNotAsked` when given a `NotAsked`', () => {
+        expect(
+          pipe(
+            RemoteData.notAsked(),
+            RemoteData.match({
+              onNotAsked: () => 'not_asked',
+              onLoading: () => 'loading',
+              onFailure: () => 'failure',
+              onSuccess: () => 'success',
+            }),
+          ),
+        ).toEqual('not_asked');
+      });
+
+      it('calls `onLoading` when given a `Loading`', () => {
+        expect(
+          pipe(
+            RemoteData.loading(),
+            RemoteData.match({
+              onNotAsked: () => 'not_asked',
+              onLoading: () => 'loading',
+              onFailure: () => 'failure',
+              onSuccess: () => 'success',
+            }),
+          ),
+        ).toEqual('loading');
+      });
+
+      it('calls `onFailure` when given a `Failure`', () => {
+        expect(
+          pipe(
+            RemoteData.failure('bad'),
+            RemoteData.match({
+              onNotAsked: () => 'not_asked',
+              onLoading: () => 'loading',
+              onFailure: () => 'failure',
+              onSuccess: () => 'success',
+            }),
+          ),
+        ).toEqual('failure');
+      });
+
+      it('calls `onSuccess` when given a `Success`', () => {
+        expect(
+          pipe(
+            RemoteData.success('good'),
+            RemoteData.match({
+              onNotAsked: () => 'not_asked',
+              onLoading: () => 'loading',
+              onFailure: () => 'failure',
+              onSuccess: () => 'success',
+            }),
+          ),
+        ).toEqual('success');
+      });
+    });
+
+    describe('when used data-first', () => {
+      it('calls `onNotAsked` when given a `NotAsked`', () => {
+        expect(
+          RemoteData.match(RemoteData.notAsked(), {
+            onNotAsked: () => 'not_asked',
+            onLoading: () => 'loading',
+            onFailure: () => 'failure',
+            onSuccess: () => 'success',
+          }),
+        ).toEqual('not_asked');
+      });
+
+      it('calls `onLoading` when given a `Loading`', () => {
+        expect(
+          RemoteData.match(RemoteData.loading(), {
+            onNotAsked: () => 'not_asked',
+            onLoading: () => 'loading',
+            onFailure: () => 'failure',
+            onSuccess: () => 'success',
+          }),
+        ).toEqual('loading');
+      });
+
+      it('calls `onFailure` when given a `Failure`', () => {
+        expect(
+          RemoteData.match(RemoteData.failure('bad'), {
+            onNotAsked: () => 'not_asked',
+            onLoading: () => 'loading',
+            onFailure: () => 'failure',
+            onSuccess: () => 'success',
+          }),
+        ).toEqual('failure');
+      });
+
+      it('calls `onSuccess` when given a `Success`', () => {
+        expect(
+          RemoteData.match(RemoteData.success('good'), {
+            onNotAsked: () => 'not_asked',
+            onLoading: () => 'loading',
+            onFailure: () => 'failure',
+            onSuccess: () => 'success',
+          }),
+        ).toEqual('success');
+      });
+    });
+  });
+
   describe('toOption', () => {
     it('turns a `NotAsked` into a `None`', () => {
       expect(pipe(RemoteData.notAsked(), RemoteData.toOption)).toEqual(
