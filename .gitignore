@@ -1,3 +1,13 @@
+#
+# effect-remote-data
+#
+
+lib/
+
+#
+# Node
+#
+
 # Logs
 logs
 *.log

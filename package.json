@@ -1,0 +1,30 @@
+{
+  "name": "effect-remote-data",
+  "version": "1.0.0",
+  "repository": "git@github.com:maxdeviant/effect-remote-data.git",
+  "author": "Marshall Bowers <elliott.codes@gmail.com>",
+  "license": "MIT",
+  "description": "A type representing fetched data for the Effect ecosystem.",
+  "keywords": [
+    "effect",
+    "remote",
+    "data"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "format": "prettier --write .",
+    "build": "tsc -p .",
+    "test": "vitest run"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/*.test.{js,d.ts}"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "3.0.3",
+    "typescript": "5.2.2",
+    "vitest": "0.34.3"
+  }
+}

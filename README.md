@@ -1,2 +1,3 @@
 # effect-remote-data
-A type for representing fetched data for the Effect ecosystem
+
+A type representing fetched data for the Effect ecosystem.
